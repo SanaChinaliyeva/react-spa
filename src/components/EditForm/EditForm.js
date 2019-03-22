@@ -12,9 +12,9 @@ const EditForm = (props) => {
                    <option>team</option>
                </select>
                <label>Title</label>
-               <input className="form-control" placeholder="Page title" onChange={props.handleTitleChange} value={props.title || ""} />
+               <input className="form-control" placeholder="Page title" onChange={props.handleTitleChange} value={props.title} />
                <label>Content</label>
-               <textarea className="form-control" placeholder="Page content" onChange={props.handleContentChange} value={props.content || ""} />
+               <textarea className="form-control" placeholder="Page content" onChange={props.handleContentChange} value={props.content} />
                <button onClick={props.handleClick} className="btn btn-info my-2">Save</button>
            </div>
        </form>

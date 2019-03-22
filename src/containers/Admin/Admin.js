@@ -10,6 +10,9 @@ class Admin extends Component {
             content: ""
         }
     };
+    componentDidMount () {
+        this.getPageContent();
+    }
     getPageContent = () => {
         let page = this.state.selected;
         if (page) {
@@ -19,6 +22,13 @@ class Admin extends Component {
                 this.setState ({page: myPage});
             });
         }
+    };
+    updatePage = (e) => {
+        e.preventDefault();
+       axios.put('/pages/' + this.state.selected + '.json', this.state.page).finally(() => {
+           let newUrl = '/'+this.state.selected;
+           this.props.history.push(newUrl);
+       });
     };
     titleChanged = (e) => {
        let newTitle = e.target.value;
@@ -34,10 +44,13 @@ class Admin extends Component {
     };
     pageSelected = (e) => {
         let page = e.target.value;
-        this.setState({selected: page});
+        this.setState({
+            selected: page
+        }, () => {
+            this.getPageContent();
+        });
     };
     render () {
-        this.getPageContent();
         return (
             <EditForm title={this.state.page.title} content={this.state.page.content} selected={this.state.selected}
                             handleTitleChange={this.titleChanged} handleContentChange={this.contentChanged} handleSelect={this.pageSelected}

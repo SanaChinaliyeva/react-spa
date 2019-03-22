@@ -15,7 +15,7 @@ class App extends Component {
               <Route path="/about" exact render={() => <Main page="about"/>} />
               <Route path="/contacts" exact render={() => <Main page="contacts"/>} />
               <Route path="/team" exact render={() => <Main page="team"/>} />
-              <Route path="/admin" exact render={() => <Admin />} />
+              <Route path="/admin" exact component={Admin} />
             </Layout>
           </Switch>
         </BrowserRouter>

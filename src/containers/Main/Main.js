@@ -19,7 +19,7 @@ class Main extends Component{
     };
     render () {
         return  this.state.currentPage ? (
-            <div className="Page">
+            <div className="App Page">
                 <h1>{this.state.currentPage.title}</h1>
                 <p>{this.state.currentPage.content}</p>
             </div>
