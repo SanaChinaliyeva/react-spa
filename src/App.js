@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Main from "./components/Main/Main";
+import Main from "./containers/Main/Main";
 import Layout from "./components/Layout/Layout";
+import Admin from "./containers/Admin/Admin";
 
 class App extends Component {
   render() {
@@ -14,7 +15,7 @@ class App extends Component {
               <Route path="/about" exact render={() => <Main page="about"/>} />
               <Route path="/contacts" exact render={() => <Main page="contacts"/>} />
               <Route path="/team" exact render={() => <Main page="team"/>} />
-              <Route path="/admin" exact render={() => <Main page="admin"/>} />
+              <Route path="/admin" exact render={() => <Admin />} />
             </Layout>
           </Switch>
         </BrowserRouter>
